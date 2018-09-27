@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+ <div class="table-responsive">
+     <p></p>
+     <h4>US Stocks Loan Data for the symbol {{ticker.symbol}}</h4>
+  <table class="table table-bordered table table-striped" style="width: auto !important">
+    <thead>
+      <tr>
+        <th>Atribute</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Symbol</td>
+        <td>{{ ticker.symbol }}</td>
+      </tr>
+          <tr>
+        <td>Currency</td>
+        <td>{{ ticker.curency }}</td>
+      </tr>
+          <tr>
+        <td>Name</td>
+        <td>{{ ticker.name }}</td>
+      </tr>
+          <tr>
+        <td>CON</td>
+        <td>{{ ticker.con }}</td>
+      </tr>
+          <tr>
+        <td>ISIN</td>
+        <td>{{ ticker.isin }}</td>
+      </tr>
+          <tr>
+        <td>Rebate Rate</td>
+        <td>{{ ticker.rebate_rate }}</td>
+      </tr>
+          <tr>
+        <td>Fee Rate</td>
+        <td>{{ ticker.fee_rate }}</td>
+      </tr>
+      <tr>
+        <td>Available</td>
+        <td>{{ ticker.amount }}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+</body>
+</html>
