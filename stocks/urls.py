@@ -1,6 +1,6 @@
 from django.urls import path
 from stocks import views
-from stocks.views import TickerList
+# from stocks.views import TickerList
 
 
 urlpatterns = [
