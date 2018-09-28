@@ -2,9 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Title</title>
 </head>
 <body>
+
+{% block content %}
+    <div class="container">
+        <div class="table-responsive">
+             <p></p>
+             <h4>US Stocks Loan Data {{ticker.symbol}}</h4>
+                <table class="table table-bordered table table-striped" style="width: auto !important">
+                    <thead>
+                      <tr>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for ticker in tickers %}
+                        <tr>
+                        <td>{{ticker.symbol}}</td>
+                        <td><a href="detail/{{ ticker.symbol }}">{{ ticker.name }}</a></td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+        </div>
+    </div>
+{% endblock %}
+{% if tickers.has_other_pages %}
+  <ul class="pagination">
+    {% if tickers.has_previous %}
+      <li><a href="?page={{ tickers.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in tickers.paginator.page_range %}
+      {% if users.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if users.has_next %}
+      <li><a href="?page={{ tickers.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
 
 </body>
 </html>
